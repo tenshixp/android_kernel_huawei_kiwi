@@ -80,7 +80,7 @@ static struct zcomp_strm *zcomp_strm_alloc(struct zcomp *comp, gfp_t flags)
 	if (!zstrm)
 		return NULL;
 
-	zstrm->private = comp->backend->create();
+	zstrm->private = comp->backend->create(flags);
 	/*
 	 * allocate 2 pages. 1 for compressed data, plus 1 extra for the
 	 * case when compressed size is larger than the original one
